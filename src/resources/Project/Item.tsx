@@ -1,6 +1,5 @@
 import React from "react"
 import { ProjectContainer, ProjectTitle, ProjectDuration, ProjectBody, ProjectStack, ProjectStackList, ProjectStackWithContribution, ProjectLink } from "./style"
-import { IoIosArrowForward } from "react-icons/io"
 import moment from "moment"
 
 interface Props {
@@ -15,7 +14,7 @@ export default class ProjectItem extends React.Component<Props,State>{
         {
           __html: string.replace( regexp, ( url: string ) => {
             url = url.replace( "(##", "" ).replace( "##)", "" )
-            return `<a href=${url} target='_blank' rel="noopener noreferrer"></a>`
+            return `<a href=${url} target='_blank' rel="noopener noreferrer">&#x2197;</a>`
           })        
         }
       } />
@@ -27,10 +26,12 @@ export default class ProjectItem extends React.Component<Props,State>{
   render(){
     return (
       <ProjectContainer>
-        <ProjectTitle>{this.props.project.title}</ProjectTitle>
-        <ProjectLink href={this.props.project.link} target="_blank" rel="noopener noreferrer">
-          <IoIosArrowForward />
-        </ProjectLink>
+        <ProjectTitle>
+          {this.props.project.title}
+          <ProjectLink href={this.props.project.link} target="_blank" rel="noopener noreferrer">
+            보기 &#x2192;
+          </ProjectLink>
+        </ProjectTitle>
         <ProjectDuration>{this.parseDuration( this.props.project.duration )}</ProjectDuration>
         <ProjectStackList>
           {Object.entries( this.props.project.jobs )

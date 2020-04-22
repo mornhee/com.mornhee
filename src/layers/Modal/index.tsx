@@ -1,7 +1,6 @@
 import React from "react"
 import { Shadow, Container, Closer } from "./style"
 import { CSSTransition } from "react-transition-group"
-import { IoIosClose } from "react-icons/io"
 
 interface Props {
   children: any;
@@ -52,7 +51,7 @@ export default class Modal extends React.Component<Props,State>{
           }}>
             {this.props.children}
           </Container>
-          <Closer><IoIosClose /></Closer>
+          <Closer>×</Closer>
         </Shadow>
       </CSSTransition>
     )

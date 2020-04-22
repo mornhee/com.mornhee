@@ -1,6 +1,17 @@
 import styled, { createGlobalStyle, css } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: "open-arrow";
+    src: url("/fonts/OpenArrow-Regular.eot") format("embedded-opentype"),
+        url("/fonts/OpenArrow-Regular.woff2") format("woff2"),
+        url("/fonts/OpenArrow-Regular.woff") format("woff"),
+        url("/fonts/OpenArrow-Regular.otf") format("opentype"),
+        url("/fonts/OpenArrow-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+2190-21ff;
+  }
   html,body,header,footer,main,article,section,div,
   h1,h2,h3,h4,h5,p,span,strong,i,a,
   ul,ol,dl,dt,dd,li,
@@ -21,12 +32,13 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: inherit;
     list-style: none;
     color: inherit;
+    -webkit-tap-highlight-color: transparent;
     -webkit-appearance: none;
     -webkit-font-smoothing antialiased;
   }
   html{
     font-size: 12px;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: "open-arrow", "Noto Sans KR", sans-serif;
     line-height: 2;
     font-weight: 400;
     word-break: keep-all;
@@ -34,6 +46,8 @@ const GlobalStyle = createGlobalStyle`
     color: rgb(${props=>props.theme.color.content});
   }
   body{
+    background-color: rgb(${props=>props.theme.color.background});
+    color: rgb(${props=>props.theme.color.content});
     font-size: 1rem;
   }
   button, select{
@@ -68,15 +82,15 @@ export const ChipList = styled.ul`
   margin: 0.5rem 0;
   li{
     display: inline-block;
-    margin-right: 0.25rem;
+    margin-right: 0.5em;
   }
 `
 export const Chip = styled.li`
-  padding: 0 0.5rem;
+  padding: 0 0.75em;
   border-radius: ${props => props.theme.radius}px;
   background-color: rgba( ${props => props.theme.color.content}, 0.1 );
   color: rgba( ${props => props.theme.color.content}, 0.75 );
-  font-size: 0.75rem;
+  font-size: 0.75em;
 `
 export const Card = styled.div``
 

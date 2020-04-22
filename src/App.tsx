@@ -16,9 +16,13 @@ export default class App extends React.Component<Props,State>{
       theme: {
         radius: 3,
         color: {
+          // content: "200,200,180",
+          // background: "50,50,50",
+          // primary: "130,100,250",
+          // secondary: "50,150,250"
           content: "100,100,120",
           background: "255,255,255",
-          primary: "100,50,250",
+          primary: "130,100,255",
           secondary: "50,150,250"
         }
       }

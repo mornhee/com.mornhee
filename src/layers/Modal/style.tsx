@@ -24,9 +24,9 @@ export const Closer = styled.button`
   bottom: 1.5rem;
   font-size: 2rem;
   z-index: 1001;
-  box-shadow: 0 2rem 3rem 1rem rgba(${props => props.theme.color.content}, 0.1), 
-              0 .5rem 1rem 0 rgba(${props => props.theme.color.content}, 0.1), 
-              0 0 1px 0 rgba(${props => props.theme.color.content}, 0.15)
+  box-shadow: 0 2rem 3rem 1rem rgba(0,0,0,0.1), 
+              0 .5rem 1rem 0 rgba(0,0,0,0.1), 
+              0 0 1px 0 rgba(0,0,0,0.15)
 `
 export const Shadow = styled.div`
   ${UtilDarkLayer()}

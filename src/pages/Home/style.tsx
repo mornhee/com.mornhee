@@ -11,7 +11,7 @@ export const SectionProfile = styled.section`
 `
 export const SectionWorks = styled.section`
   ${UtilContainer(`54rem`)}
-  margin-top: 1rem;
+  margin-top: 2rem;
 `
 
 export const ProfilePhoto = styled.img`
@@ -30,12 +30,22 @@ export const ProfileIntroduction = styled.p`
 `
 
 export const StackList = styled( ChipList )`
-  margin-bottom: 0;
+  &&&{
+    font-size: 1.33rem;
+    margin-bottom: 0;
+    li{
+      margin: 0 0.25em;
+    }
+  }
 `
 export const StackItem = styled( Chip )<{ active?: boolean }>`
+  cursor: pointer;
+  overflow: hidden;
   &&&{
-    background-color: rgb(${props=>props.active && props.theme.color.primary});
-    color: rgb(${props=>props.active && props.theme.color.background});
-    cursor: ${props=>props.active ? `default` : `pointer`};
+    ${props=>props.active && `
+      background-color: rgb(${props.theme.color.primary});
+      color: rgb(255,255,255);
+      cursor: default;
+    `}
   }
 `

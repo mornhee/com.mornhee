@@ -40,7 +40,7 @@ class ProjectStore {
         ref = o.indexOf( undefined ) >= 0 ? ref : ref.where( ...o )
       }
     } 
-    let { docs } = await ref.get()
+    let { docs } = await ref.limit(2).get()
 
     this.Lists[ listName ].loading = false
     docs.forEach( ( doc: firebase.firestore.QueryDocumentSnapshot ) => {

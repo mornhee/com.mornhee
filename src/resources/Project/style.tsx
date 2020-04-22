@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components"
-import { UtilAbsolute, Chip, ChipList, UtilSquare } from "../../utils/GlobalStyle"
+import { UtilAbsolute, Chip, ChipList } from "../../utils/GlobalStyle"
 
 // LIST
 export const List = styled.ul``
@@ -14,7 +14,7 @@ export const ListEmpty = styled.div`
   color: rgba(${props=>props.theme.color.content},0.5);
 `
 export const ListCount = styled.div`
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   strong{
     color: rgb(${props=>props.theme.color.primary});
     font-weight: bold;
@@ -22,38 +22,51 @@ export const ListCount = styled.div`
 `
 // ITEM
 export const ProjectContainer = styled.article`
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 0.5rem;
   background-color: rgba(${props=>props.theme.color.background},1);
-  box-shadow: 0 .5rem 2rem 1rem rgba(${props => props.theme.color.content}, 0.1), 
-              0 .5rem 1rem 0 rgba(${props => props.theme.color.content}, 0.1), 
-              0 0 1px 0 rgba(${props => props.theme.color.content}, 0.15);
+  box-shadow: 0 .5rem 2rem 1rem rgba(0,0,0,0.05), 
+              0 .25rem 1rem 0 rgba(0,0,0,0.05), 
+              0 0 1px 0 rgba(0,0,0,0.1);
   line-height: 2;
 `
 export const ProjectTitle = styled.div`
-  line-height: 1rem;
-  margin-bottom: 0.5rem;
+  display: flex;
   font-weight: bold;
 `
 export const ProjectLink = styled.a`
-  ${UtilAbsolute(`RightTop`)}
-  ${UtilSquare(`5rem`)}
-  font-size: 1.5rem;
+  margin-left: auto;
+  font-weight: normal;
   color: rgba(${props=>props.theme.color.primary},1);
-  `
+  &:before{
+    ${UtilAbsolute()}
+    content: "";
+    top: -0.25rem;
+    left: -1rem;
+    right: -1rem;
+    bottom: -0.25rem;
+    border-radius: ${props=>props.theme.radius}px;
+    background-color: rgba(${props=>props.theme.color.primary},0.1);
+    opacity: 0;
+    transform: scale(0.75);
+    transition: .2s opacity, .2s transform;
+  }
+  &:hover{
+    &:before{
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+`
 export const ProjectDuration = styled.div`
   font-size: 0.75rem;
 `
 export const ProjectBody = styled.div`
-  a[target=_blank]{
-    &:before{
-      content: "LINK";
-      margin-left: 0.25rem;
-      font-size: 0.75rem;
-      font-weight: bold;
-      vertical-align: super;
-      color: rgba(${props=>props.theme.color.primary},1);
-    }
+  a{
+    font-size: 0.75rem;
+    font-weight: bold;
+    vertical-align: super;
+    color: rgba(${props=>props.theme.color.primary},1);
   }
 `
 
