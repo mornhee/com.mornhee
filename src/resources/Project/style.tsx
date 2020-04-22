@@ -16,7 +16,7 @@ export const ListEmpty = styled.div`
 export const ListCount = styled.div`
   margin-bottom: 1rem;
   strong{
-    color: rgb(${props=>props.theme.color.primary});
+    color: rgba(${props=>props.theme.color.primary},1);
     font-weight: bold;
   }
 `

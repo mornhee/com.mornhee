@@ -42,58 +42,19 @@ const GlobalStyle = createGlobalStyle`
     line-height: 2;
     font-weight: 400;
     word-break: keep-all;
-    background-color: rgb(${props=>props.theme.color.background});
-    color: rgb(${props=>props.theme.color.content});
+    background-color: rgba(${props=>props.theme.color.background},1);
+    color: rgba(${props=>props.theme.color.content},1);
   }
   body{
-    background-color: rgb(${props=>props.theme.color.background});
-    color: rgb(${props=>props.theme.color.content});
+    background-color: rgba(${props=>props.theme.color.background},1);
+    color: rgba(${props=>props.theme.color.content},1);
+    overflow-x: hidden;
     font-size: 1rem;
   }
   button, select{
     cursor: pointer;
   }
 `
-
-export const AppTitle = styled.h1<{ hide?: boolean }>`
-  ${ props => props.hide && `display: none;` }
-`
-export const Page = styled.div``
-export const PageTitle = styled.h2<{ hide?: boolean }>`
-  ${ props => props.hide && `display: none;` }
-  margin-left: -.05em;
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 1.5;
-`
-export const Section = styled.section``
-export const SectionTitle = styled.h3<{ hide?: boolean }>`
-  ${ props => props.hide && `display: none;` }
-  margin-bottom: 1.5rem;
-  font-size: 1.25rem;
-`
-export const SectionSubTitle = styled.h4<{ hide?: boolean }>`
-  ${ props => props.hide && `display: none;` }
-  font-weight: bold;
-`
-export const Resource = styled.article``
-export const ChipList = styled.ul`
-  line-height: 2;
-  li{
-    display: inline-block;
-    margin-right: 0.5em;
-  }
-`
-export const Chip = styled.li`
-  padding: 0 0.75em;
-  border-radius: ${props => props.theme.radius}px;
-  background-color: rgba( ${props => props.theme.color.content}, 0.1 );
-  color: rgba( ${props => props.theme.color.content}, 0.75 );
-  font-size: 0.75em;
-`
-export const Card = styled.div``
-
-
 
 
 export const UtilAbsolute = ( position?: string ) => css`
@@ -139,6 +100,77 @@ export const UtilDarkLayer = () => css`
   ${UtilFixed()}
   background-color: rgba(0,0,0,0.2);
 `
+
+
+export const AppTitle = styled.h1<{ hide?: boolean }>`
+  ${props => props.hide && `display: none;`}
+`
+export const Page = styled.div``
+export const PageTitle = styled.h2<{ hide?: boolean }>`
+  ${props => props.hide && `display: none;`}
+  margin-left: -.05em;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.5;
+`
+export const Section = styled.section``
+export const SectionTitle = styled.h3<{ hide?: boolean }>`
+  ${props => props.hide && `display: none;`}
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+`
+export const SectionSubTitle = styled.h4<{ hide?: boolean }>`
+  ${props => props.hide && `display: none;`}
+  font-weight: bold;
+`
+export const Resource = styled.article``
+export const ChipList = styled.ul`
+  line-height: 2;
+  li{
+    display: inline-block;
+    margin-right: 0.5em;
+  }
+`
+export const Chip = styled.li`
+  padding: 0 0.75em;
+  border-radius: ${props => props.theme.radius}px;
+  background-color: rgba(${props => props.theme.color.content},0.1);
+  color: rgba(${props => props.theme.color.content},0.75);
+  font-size: 0.75em;
+`
+export const Card = styled.div``
+
+export const ThemeToggle = styled.button`
+  ${UtilAbsolute(`RightTop`)}
+  ${UtilSquare(`4rem`)}
+  top: 1rem;
+  right: 1rem;
+  transform: rotate(45deg);
+  transform-origin: center;
+  font-size: 1.5rem;
+  color: rgba(${props=>props.theme.color.content},1);
+  transition: .2s color;
+  cursor: pointer;
+  z-index: 1000;
+  &:before{
+    ${UtilAbsolute()}
+    content: "";
+    border-radius: 100%;
+    background-color: rgba(${props=>props.theme.color.content},1);
+    transform: scale(0);
+    transition: .2s transform;
+    z-index: -1;
+  }
+  &:hover{
+    color: rgba(${props=>props.theme.color.background},1);
+    &:before{
+      transform: scale(4);
+    }
+  }
+`
+
+
+
 
 
 export default GlobalStyle

@@ -16,7 +16,6 @@ export const SectionWorks = styled.section`
 
 export const ProfilePhoto = styled.img`
   ${UtilSquare(`8rem`)}
-  background-color: rgb(${props=>props.theme.color.content});
   border-radius: 100%;
 `
 export const ProfileDisplayName = styled.div`
@@ -43,7 +42,7 @@ export const StackItem = styled( Chip )<{ active?: boolean }>`
   overflow: hidden;
   &&&{
     ${props=>props.active && `
-      background-color: rgb(${props.theme.color.primary});
+      background-color: rgba(${props.theme.color.primary},1);
       color: rgb(255,255,255);
       cursor: default;
     `}

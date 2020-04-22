@@ -25,7 +25,7 @@ export default class ProjectItemList extends React.Component<Props,State>{
     await ProjectStore.getDocuments({ listName: this.props.listName, query: this.props.query, clear: this.props.clear })
   }
   componentDidUpdate( prevProps: Props ){
-    if( prevProps.query.where !== this.props.query.where ){
+    if( JSON.stringify( prevProps.query.where ) !== JSON.stringify( this.props.query.where ) ){
       ProjectStore.getDocuments({ listName: this.props.listName, query: this.props.query, clear: true })
     }
   }

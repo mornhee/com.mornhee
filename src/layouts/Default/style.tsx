@@ -9,6 +9,6 @@ export const LayoutFooter = styled.footer`
   margin-top: 4rem;
   text-align: center;
   a{
-    color: rgb(${props=>props.theme.color.primary});
+    color: rgba(${props=>props.theme.color.primary},1);
   }
 `

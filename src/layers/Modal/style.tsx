@@ -5,7 +5,7 @@ export const Container = styled.div`
   ${UtilAbsolute()}
   ${UtilContainer(`560px`)}
   top: 5vw;
-  background-color: rgb(${props => props.theme.color.background});
+  background-color: rgba(${props => props.theme.color.background},1);
   border-top-right-radius: ${props => props.theme.radius*4}px;
   border-top-left-radius: ${props => props.theme.radius*4}px;
   padding-bottom: 6rem !important;
@@ -20,7 +20,7 @@ export const Closer = styled.button`
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  background-color: rgba(${props => props.theme.color.background});
+  background-color: rgba(${props => props.theme.color.background},1);
   bottom: 1.5rem;
   font-size: 2rem;
   z-index: 1001;

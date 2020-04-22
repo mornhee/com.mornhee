@@ -5,7 +5,7 @@ export const Container = styled.div`
   ${UtilAbsolute('Right')}
   width: 100%;
   max-width: 24rem;
-  background-color: rgb(${props => props.theme.color.background});
+  background-color: rgba(${props => props.theme.color.background},1);
   overflow: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
