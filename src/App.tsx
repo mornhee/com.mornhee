@@ -31,7 +31,7 @@ export default class App extends React.Component<Props,State>{
   constructor( props: Props ){
     super( props )
     this.state = {
-      theme: darkTheme
+      theme: brightTheme
     }
     this.toggleTheme = this.toggleTheme.bind( this )
   }
