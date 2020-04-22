@@ -79,7 +79,6 @@ export const SectionSubTitle = styled.h4<{ hide?: boolean }>`
 export const Resource = styled.article``
 export const ChipList = styled.ul`
   line-height: 2;
-  margin: 0.5rem 0;
   li{
     display: inline-block;
     margin-right: 0.5em;

@@ -62,6 +62,7 @@ export const ProjectDuration = styled.div`
   font-size: 0.75rem;
 `
 export const ProjectBody = styled.div`
+  margin-top: 0.5rem;
   a{
     font-size: 0.75rem;
     font-weight: bold;
@@ -83,7 +84,9 @@ export const ProjectStackWithContribution = styled( Chip )<{ amount: number }>`
     background-color: rgba( ${props => props.theme.color.content}, 0.1 );
   }
 `
-export const ProjectStackList = styled( ChipList )``
+export const ProjectStackList = styled( ChipList )`
+  margin-top: 0.5rem;
+`
 
 // ITEM DUMMY
 const Blink = keyframes`

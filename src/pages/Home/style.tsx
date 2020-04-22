@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { UtilSquare, UtilContainer, Chip, ChipList } from "../../utils/GlobalStyle"
 
 export const SectionProfile = styled.section`
-  ${UtilContainer(`54rem`)}
+  ${UtilContainer(`36rem`)}
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,13 +26,13 @@ export const ProfileDisplayName = styled.div`
 `
 export const ProfileJob = styled.div``
 export const ProfileIntroduction = styled.p`
-  margin: 1.5rem 0 1rem 0;
+  margin-top: 1.5rem;
 `
 
 export const StackList = styled( ChipList )`
   &&&{
     font-size: 1.33rem;
-    margin-bottom: 0;
+    margin-top: 1.5rem;
     li{
       margin: 0 0.25em;
     }

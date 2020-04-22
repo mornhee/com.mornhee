@@ -28,7 +28,6 @@ class ProjectStore {
     if( !clear && this.Lists[ listName ] ) return false
 
     this.Lists[ listName ] = { documents: [], loading: true }
-
     let ref: firebase.firestore.CollectionReference|firebase.firestore.Query = firestore.collection( "Projects" )
     if( orderBy ){
       for( let o of orderBy ){
@@ -40,14 +39,18 @@ class ProjectStore {
         ref = o.indexOf( undefined ) >= 0 ? ref : ref.where( ...o )
       }
     } 
-    let { docs } = await ref.limit(2).get()
+    let { docs } = await ref.get()
 
-    this.Lists[ listName ].loading = false
+    let newDocuments: {[slug: string]: ResourceProject} = {}
+    let newListDocuments: string[] = []
     docs.forEach( ( doc: firebase.firestore.QueryDocumentSnapshot ) => {
       let data = doc.data() as ResourceProject
-      this.Documents[ data.slug ] = data
-      this.Lists[ listName ].documents.push( data.slug )
+      newDocuments[ data.slug ] = data
+      newListDocuments.push( data.slug )
     })
+    this.Documents = Object.assign( this.Documents, newDocuments )
+    this.Lists[ listName ].documents = this.Lists[ listName ].documents.concat( newListDocuments )
+    this.Lists[ listName ].loading = false
   }
 
 }

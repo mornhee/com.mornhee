@@ -30,11 +30,11 @@ export default class Home extends React.Component<Props,State>{
           <SectionTitle hide>프로필</SectionTitle>
           <ProfilePhoto src="/profile.jpg" alt="고양이가 입을 쩍 벌리고 있는 귀여운 이미지" />
           <ProfileDisplayName>mornhee</ProfileDisplayName>
-          <ProfileJob>FrontEnd Engineer</ProfileJob>
+          <ProfileJob>FrontEnd Developer</ProfileJob>
           <ProfileIntroduction>
             학부에서 그래픽 디자인을 공부했으며, 2015년부터 3년 간 프리랜스 웹 개발자로 활동. 
-            2018년 말부터 1년 간 디지털 미디어 에이전시 themotif에서 프론트엔드 엔지니어로 근무한 뒤, 현재 구직 중. 
-            두마리 고양이와 동거 중이며, 밴드 음악에 관심이 많음.
+            2018년 말부터 1년 간 디지털 미디어 에이전시 themotif에서 웹 프론트엔드 개발자로 근무함.
+            두마리의 고양이와 동거 중이며, 밴드 음악에 관심이 많음.
           </ProfileIntroduction>
           <StackList>
             <StackItem onClick={() => this.shiftSelectedFilter( undefined )} active={this.state.selectedFilter===undefined}>All</StackItem>
