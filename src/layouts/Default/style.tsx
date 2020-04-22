@@ -6,7 +6,7 @@ export const LayoutWrapper = styled.div`
 export const LayoutHeader = styled.header``
 export const LayoutContainer = styled.main``
 export const LayoutFooter = styled.footer`
-  padding: 5vw;
+  margin-top: 4rem;
   text-align: center;
   font-size: 0.75rem;
 `

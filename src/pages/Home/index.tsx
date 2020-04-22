@@ -1,6 +1,7 @@
 import React from "react"
 import LayoutDefault from "../../layouts/Default"
 import { SectionProfile, SectionWorks, ProfilePhoto, ProfileDisplayName, ProfileJob, ProfileIntroduction, StackList, StackItem } from "./style"
+import { PageTitle, SectionTitle } from "../../utils/GlobalStyle"
 import { ProjectItemList, ProjectStore } from "../../resources/Project"
 import { observer } from "mobx-react"
 
@@ -24,7 +25,9 @@ export default class Home extends React.Component<Props,State>{
   render(){
     return (
       <LayoutDefault>
+        <PageTitle hide>홈</PageTitle>
         <SectionProfile>
+          <SectionTitle hide>프로필</SectionTitle>
           <ProfilePhoto src="/profile.jpg" alt="고양이가 입을 쩍 벌리고 있는 이미지" />
           <ProfileDisplayName>mornhee</ProfileDisplayName>
           <ProfileJob>FrontEnd Engineer</ProfileJob>
@@ -42,6 +45,7 @@ export default class Home extends React.Component<Props,State>{
           </StackList>
         </SectionProfile>
         <SectionWorks>
+          <SectionTitle hide>프로젝트 열람</SectionTitle>
           <ProjectItemList listName="home" query={{ 
             where:   [ [ "stacks", "array-contains", this.state.selectedFilter ] ],
             orderBy: [ [ "duration", "desc" ] ] 
