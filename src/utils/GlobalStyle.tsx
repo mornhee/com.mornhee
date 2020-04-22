@@ -166,6 +166,12 @@ export const ThemeToggle = styled.button`
     &:before{
       transform: scale(4);
     }
+    @media (hover: none){
+      color: rgba(${props=>props.theme.color.content},1);
+      &:before{
+        display: none;
+      }
+    }
   }
 `
 
