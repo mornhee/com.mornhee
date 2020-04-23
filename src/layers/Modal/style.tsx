@@ -9,9 +9,9 @@ export const Container = styled.div`
   border-top-right-radius: ${props => props.theme.radius*4}px;
   border-top-left-radius: ${props => props.theme.radius*4}px;
   padding-bottom: 6rem !important;
-  overflow: auto;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth; 
+  overflow: auto;
 `
 export const Closer = styled.button`
   ${UtilFixed(`Bottom`)}
@@ -30,6 +30,13 @@ export const Closer = styled.button`
 `
 export const Shadow = styled.div`
   ${UtilDarkLayer()}
+  &.enter{         opacity: 0; } 
+  &.enter-active{  opacity: 1; } 
+  &.appear{        opacity: 0; } 
+  &.appear-active{ opacity: 1; } 
+  &.exit{          opacity: 1; } 
+  &.exit-active{   opacity: 0; } 
+  &.exit-done{     opacity: 0; } 
   &.enter ${Container}{         transform: translateY(100%); } 
   &.enter-active ${Container}{  transform: translateY(0%); } 
   &.appear ${Container}{        transform: translateY(100%); } 

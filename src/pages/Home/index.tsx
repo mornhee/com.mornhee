@@ -37,7 +37,7 @@ export default class Home extends React.Component<Props,State>{
             두마리의 고양이와 동거 중이며, 밴드 음악에 관심이 많음.
           </ProfileIntroduction>
           <StackList>
-            <StackItem onClick={() => this.shiftSelectedFilter( undefined )} active={this.state.selectedFilter===undefined}>All</StackItem>
+            <StackItem onClick={() => this.shiftSelectedFilter(undefined)} active={this.state.selectedFilter===undefined}>All</StackItem>
             <StackItem onClick={() => this.shiftSelectedFilter(`Vue`)} active={this.state.selectedFilter===`Vue`}>Vue</StackItem>
             <StackItem onClick={() => this.shiftSelectedFilter(`Nuxt`)} active={this.state.selectedFilter===`Nuxt`}>Nuxt</StackItem>
             <StackItem onClick={() => this.shiftSelectedFilter(`React`)} active={this.state.selectedFilter===`React`}>React</StackItem>

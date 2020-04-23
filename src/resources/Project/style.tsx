@@ -1,8 +1,8 @@
 import styled, { keyframes } from "styled-components"
-import { UtilAbsolute, Chip, ChipList } from "../../utils/GlobalStyle"
+import { UtilAbsolute, Card, Chip, ChipList } from "../../utils/GlobalStyle"
 
 // LIST
-export const List = styled.ul``
+export const ListContainer = styled.ul``
 export const ListItem = styled.li`
   margin-bottom: 1rem;
   &:last-of-type{
@@ -21,20 +21,15 @@ export const ListCount = styled.div`
   }
 `
 // ITEM
-export const ProjectContainer = styled.article`
+export const ItemContainer = styled( Card )`
   padding: 1.5rem 2rem;
-  border-radius: 0.5rem;
-  background-color: rgba(${props=>props.theme.color.background},1);
-  box-shadow: 0 .5rem 2rem 1rem rgba(0,0,0,0.05), 
-              0 .25rem 1rem 0 rgba(0,0,0,0.05), 
-              0 0 1px 0 rgba(0,0,0,0.1);
   line-height: 2;
 `
-export const ProjectTitle = styled.div`
+export const ItemTitle = styled.div`
   display: flex;
   font-weight: bold;
 `
-export const ProjectLink = styled.a`
+export const ItemLink = styled.a`
   margin-left: auto;
   font-weight: normal;
   color: rgba(${props=>props.theme.color.primary},1);
@@ -58,10 +53,10 @@ export const ProjectLink = styled.a`
     }
   }
 `
-export const ProjectDuration = styled.div`
+export const ItemDuration = styled.div`
   font-size: 0.75rem;
 `
-export const ProjectBody = styled.div`
+export const ItemBody = styled.div`
   margin-top: 0.5rem;
   a{
     font-size: 0.75rem;
@@ -71,8 +66,8 @@ export const ProjectBody = styled.div`
   }
 `
 
-export const ProjectStack = styled( Chip )``
-export const ProjectStackWithContribution = styled( Chip )<{ amount: number }>`
+export const ItemStack = styled( Chip )``
+export const ItemStackWithContribution = styled( Chip )<{ amount: number }>`
   &&&{
     background-color: transparent;
     font-weight: bold;
@@ -84,46 +79,45 @@ export const ProjectStackWithContribution = styled( Chip )<{ amount: number }>`
     background-color: rgba( ${props => props.theme.color.content}, 0.1 );
   }
 `
-export const ProjectStackList = styled( ChipList )`
+export const ItemStackList = styled( ChipList )`
   margin-top: 0.5rem;
 `
 
 // ITEM DUMMY
 const Blink = keyframes`
-  0%{
-    opacity: 1;
-  }
-  50%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
+  0%{   opacity: 1; }
+  50%{  opacity: 0; }
+  100%{ opacity: 1; }
 `
-export const ProjectDummyContainer = styled( ProjectContainer )`
-  color: rgba(${props => props.theme.color.content},0.1);
-  ${ProjectTitle},${ProjectDuration},${ProjectStack},${ProjectBody}{
+export const ItemDummyContainer = styled( ItemContainer )`
+  ${ItemTitle},
+  ${ItemDuration},
+  ${ItemStack},
+  ${ItemBody}{
     animation-name: ${Blink};
     animation-duration: 2s;
     animation-iteration-count: infinite; 
   }
-  ${ProjectTitle}{
+  ${ItemTitle}{
     width: 6rem;
     height: 1.75rem;
     background-color: rgba(${props => props.theme.color.content},0.1);
+    border-radius: ${props => props.theme.radius}px;
   }
-  ${ProjectDuration}{
+  ${ItemDuration}{
     width: 8rem;
     height: 0.5rem;
     margin-top: 0.5rem;
     background-color: rgba(${props => props.theme.color.content},0.1);
+    border-radius: ${props => props.theme.radius}px;
   }
-  ${ProjectStack}{
+  ${ItemStack}{
     width: 4rem;
-    height: 1rem;
+    height: 1.5rem;
   }
-  ${ProjectBody}{
+  ${ItemBody}{
     height: 3.5rem;
     background-color: rgba(${props => props.theme.color.content},0.1);
+    border-radius: ${props => props.theme.radius}px;
   }
 `

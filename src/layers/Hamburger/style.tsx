@@ -12,6 +12,13 @@ export const Container = styled.div`
 `
 export const Shadow = styled.div`
   ${UtilDarkLayer()}
+  &.enter{         opacity: 0; } 
+  &.enter-active{  opacity: 1; } 
+  &.appear{        opacity: 0; } 
+  &.appear-active{ opacity: 1; } 
+  &.exit{          opacity: 1; } 
+  &.exit-active{   opacity: 0; } 
+  &.exit-done{     opacity: 0; } 
   &.enter > ${Container}{         transform: translateX(100%); } 
   &.enter-active > ${Container}{  transform: translateX(0%); } 
   &.appear > ${Container}{        transform: translateX(100%); } 

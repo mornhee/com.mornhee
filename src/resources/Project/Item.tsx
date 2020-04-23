@@ -1,5 +1,5 @@
 import React from "react"
-import { ProjectContainer, ProjectTitle, ProjectDuration, ProjectBody, ProjectStack, ProjectStackList, ProjectStackWithContribution, ProjectLink } from "./style"
+import { ItemContainer, ItemTitle, ItemDuration, ItemBody, ItemStack, ItemStackList, ItemStackWithContribution, ItemLink } from "./style"
 import moment from "moment"
 
 interface Props {
@@ -7,6 +7,10 @@ interface Props {
 }
 interface State {}
 export default class ProjectItem extends React.Component<Props,State>{
+  constructor( props: Props ){
+    super( props )
+    this.state = {}
+  }
   parseStringWithLink( string: string ){
     const regexp = /(\(##).*(##\))/g
     return (
@@ -25,30 +29,25 @@ export default class ProjectItem extends React.Component<Props,State>{
   }
   render(){
     return (
-      <ProjectContainer>
-        <ProjectTitle>
-          {this.props.project.title}
-          <ProjectLink href={this.props.project.link} target="_blank" rel="noopener noreferrer">
-            보기 &#x2192;
-          </ProjectLink>
-        </ProjectTitle>
-        <ProjectDuration>{this.parseDuration( this.props.project.duration )}</ProjectDuration>
-        <ProjectStackList>
+      <ItemContainer as="article">
+        <ItemTitle>{this.props.project.title}
+          <ItemLink href={this.props.project.link} target="_blank" rel="noopener noreferrer">보기 &#x2192;</ItemLink>
+        </ItemTitle>
+        <ItemDuration>{this.parseDuration( this.props.project.duration )}</ItemDuration>
+        <ItemStackList>
           {Object.entries( this.props.project.jobs )
             .filter( ([ job, amount ]: [ string, number ]) => amount > 0 )
             .map( ([ job, amount ]: [ string, number ]) => (
-              <ProjectStackWithContribution amount={amount} key={job}>
+              <ItemStackWithContribution amount={amount} key={job}>
                 <span>{job} {amount*100}%</span>
                 <span className="contributionBar"></span>
-              </ProjectStackWithContribution>
+              </ItemStackWithContribution>
             ))
           }
-          {this.props.project.stacks.map( stack => <ProjectStack key={stack}>{stack}</ProjectStack> )}
-        </ProjectStackList>
-        <ProjectBody>
-          {this.parseStringWithLink( this.props.project.details )}
-        </ProjectBody>
-      </ProjectContainer>
+          {this.props.project.stacks.map( stack => <ItemStack key={stack}>{stack}</ItemStack> )}
+        </ItemStackList>
+        <ItemBody>{this.parseStringWithLink( this.props.project.details )}</ItemBody>
+      </ItemContainer>
     )
   }
 }
