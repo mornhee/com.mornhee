@@ -138,7 +138,13 @@ export const Chip = styled.li`
   color: rgba(${props => props.theme.color.content},0.75);
   font-size: 0.75em;
 `
-export const Card = styled.div``
+export const Card = styled.div`
+  border-radius: 0.5rem;
+  background-color: rgba(${props=>props.theme.color.background},1);
+  box-shadow: 0 .5rem 2rem 1rem rgba(0,0,0,0.05), 
+              0 .25rem 1rem 0 rgba(0,0,0,0.05), 
+              0 0 1px 0 rgba(0,0,0,0.1);
+`
 
 export const ThemeToggle = styled.button`
   ${UtilAbsolute(`RightTop`)}
@@ -149,7 +155,7 @@ export const ThemeToggle = styled.button`
   transform-origin: center;
   font-size: 1.5rem;
   color: rgba(${props=>props.theme.color.content},1);
-  transition: .2s color;
+  transition: .2s color, .2s transform;
   cursor: pointer;
   z-index: 1000;
   &:before{
@@ -162,6 +168,7 @@ export const ThemeToggle = styled.button`
     z-index: -1;
   }
   &:hover{
+    transform: rotate(225deg);
     color: rgba(${props=>props.theme.color.background},1);
     &:before{
       transform: scale(4);

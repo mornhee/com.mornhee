@@ -1,13 +1,13 @@
 import { observable, action } from "mobx"
 import firebase, { firestore } from "../../utils/firebase"
 
-interface ResourceList {
+interface List {
   [listName: string]: {
     documents: string[]
     loading: boolean
   }
 }
-interface GetPayload {
+interface getDocumentsPayload {
   listName: string
   query: {
     where?: [ any, any, any ][]
@@ -21,10 +21,10 @@ class ProjectStore {
   Documents: { [slug: string]: ResourceProject } = {}
 
   @observable
-  Lists: ResourceList = {}
+  Lists: List = {}
 
   @action
-  async getDocuments({ listName, query: { where, orderBy }, clear }: GetPayload ){
+  async getDocuments({ listName, query: { where, orderBy }, clear }: getDocumentsPayload ){
     if( !clear && this.Lists[ listName ] ) return false
 
     this.Lists[ listName ] = { documents: [], loading: true }
@@ -41,7 +41,7 @@ class ProjectStore {
     } 
     let { docs } = await ref.get()
 
-    let newDocuments: {[slug: string]: ResourceProject} = {}
+    let newDocuments: { [slug: string]: ResourceProject } = {}
     let newListDocuments: string[] = []
     docs.forEach( ( doc: firebase.firestore.QueryDocumentSnapshot ) => {
       let data = doc.data() as ResourceProject

@@ -1,19 +1,23 @@
 import React from "react"
-import { ProjectDummyContainer, ProjectTitle, ProjectDuration, ProjectBody, ProjectStack, ProjectStackList } from "./style"
+import { ItemDummyContainer, ItemTitle, ItemDuration, ItemBody, ItemStack, ItemStackList } from "./style"
 
 interface Props {}
 interface State {}
 export default class ProjectDummyItem extends React.Component<Props,State>{
+  constructor( props: Props ){
+    super( props )
+    this.state = {}
+  }
   render(){
     return (
-      <ProjectDummyContainer>
-        <ProjectTitle />
-        <ProjectDuration />
-        <ProjectStackList>
-          <ProjectStack/><ProjectStack/><ProjectStack/><ProjectStack/>
-        </ProjectStackList>
-        <ProjectBody />
-      </ProjectDummyContainer>
+      <ItemDummyContainer>
+        <ItemTitle />
+        <ItemDuration />
+        <ItemStackList>
+          <ItemStack/><ItemStack/><ItemStack/><ItemStack/>
+        </ItemStackList>
+        <ItemBody />
+      </ItemDummyContainer>
     )
   }
 }
