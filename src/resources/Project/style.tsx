@@ -11,12 +11,12 @@ export const ListItem = styled.li`
 `
 export const ListEmpty = styled.div`
   text-align: center;
-  color: rgba(${props=>props.theme.color.content},0.5);
+  color: rgba(${props => props.theme.color.content},0.5);
 `
 export const ListCount = styled.div`
   margin-bottom: 1rem;
   strong{
-    color: rgba(${props=>props.theme.color.primary},1);
+    color: rgba(${props => props.theme.color.primary},1);
     font-weight: bold;
   }
 `
@@ -32,7 +32,7 @@ export const ItemTitle = styled.div`
 export const ItemLink = styled.a`
   margin-left: auto;
   font-weight: normal;
-  color: rgba(${props=>props.theme.color.primary},1);
+  color: rgba(${props => props.theme.color.primary},1);
   &:before{
     ${UtilAbsolute()}
     content: "";
@@ -40,8 +40,8 @@ export const ItemLink = styled.a`
     left: -1rem;
     right: -1rem;
     bottom: -0.25rem;
-    border-radius: ${props=>props.theme.radius}px;
-    background-color: rgba(${props=>props.theme.color.primary},0.1);
+    border-radius: ${props => props.theme.radius}px;
+    background-color: rgba(${props => props.theme.color.primary},0.1);
     opacity: 0;
     transform: scale(0.75);
     transition: .2s opacity, .2s transform;
@@ -62,7 +62,7 @@ export const ItemBody = styled.div`
     font-size: 0.75rem;
     font-weight: bold;
     vertical-align: super;
-    color: rgba(${props=>props.theme.color.primary},1);
+    color: rgba(${props => props.theme.color.primary},1);
   }
 `
 

@@ -9,5 +9,6 @@ declare module "styled-components" {
       primary: string
       secondary: string
     }
+    isBrowser: boolean
   }
 }

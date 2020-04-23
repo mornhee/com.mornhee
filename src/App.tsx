@@ -2,26 +2,20 @@ import React from 'react';
 import { ThemeProvider, DefaultTheme } from "styled-components"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import GlobalStyle, { ThemeToggle } from "./utils/GlobalStyle"
-
+import { isBrowser } from "react-device-detect"
 import Home from "./pages/Home"
 
-const brightTheme: DefaultTheme = {
-  radius: 3,
-  color: {
-    content: "100,100,120",
-    background: "255,255,255",
-    primary: "130,100,255",
-    secondary: "50,150,250"
-  }
+const brightTheme = {
+  content: "100,100,120",
+  background: "255,255,255",
+  primary: "130,100,255",
+  secondary: "50,150,250"
 }
-const darkTheme: DefaultTheme = {
-  radius: 3,
-  color: {
-    content: "200,200,180",
-    background: "50,50,50",
-    primary: "130,100,250",
-    secondary: "50,150,250"
-  }
+const darkTheme = {
+  content: "200,200,180",
+  background: "50,50,50",
+  primary: "130,100,250",
+  secondary: "50,150,250"
 }
 interface Props {}
 interface State {
@@ -31,12 +25,21 @@ export default class App extends React.Component<Props,State>{
   constructor( props: Props ){
     super( props )
     this.state = {
-      theme: brightTheme
+      theme: {
+        radius: 3,
+        color: brightTheme,
+        isBrowser
+      }
     }
     this.toggleTheme = this.toggleTheme.bind( this )
   }
   toggleTheme(){
-    this.setState({ theme: this.state.theme === darkTheme ? brightTheme : darkTheme })
+    this.setState({
+      theme: {
+        ...this.state.theme,
+        color: this.state.theme.color === darkTheme ? brightTheme : darkTheme
+      }
+    })
   }
   render(){
     return (
