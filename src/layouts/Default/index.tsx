@@ -14,7 +14,10 @@ export default class LayoutDefault extends React.Component<Props,State>{
           <AppTitle hide>mornhee, make something</AppTitle>
         </LayoutHeader>
         <LayoutContainer>{this.props.children}</LayoutContainer>
-        <LayoutFooter>©mornhee. All rights reserved.<br/><a href="mailto:mornhee@gmail.com" target="_blank" rel="noopener noreferrer">mornhee@gmail.com</a></LayoutFooter>
+        <LayoutFooter>
+          ©mornhee. All rights reserved.<br/>
+          <a href="https://github.com/mornhee" target="_blank" rel="noopener noreferrer">Github repository</a> · <a href="mailto:mornhee@gmail.com" target="_blank" rel="noopener noreferrer">mornhee@gmail.com</a>
+        </LayoutFooter>
       </LayoutWrapper>
     )
   }
