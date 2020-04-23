@@ -1,5 +1,11 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { UtilSquare, UtilContainer, Chip, ChipList } from "../../utils/GlobalStyle"
+
+const spin = keyframes`
+  0%{   transform: rotate( 0deg ); }
+  50%{  transform: rotate( 180deg ); }
+  100%{ transform: rotate( 360deg ); }
+`
 
 export const SectionProfile = styled.section`
   ${UtilContainer(`36rem`)}
@@ -17,6 +23,10 @@ export const SectionWorks = styled.section`
 export const ProfilePhoto = styled.img`
   ${UtilSquare(`8rem`)}
   border-radius: 100%;
+  animation-name: ${spin};
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; 
 `
 export const ProfileDisplayName = styled.div`
   margin-top: 0.5rem;
@@ -41,7 +51,7 @@ export const StackItem = styled( Chip )<{ active?: boolean }>`
   cursor: pointer;
   overflow: hidden;
   &&&{
-    ${props=>props.active && `
+    ${props => props.active && `
       background-color: rgba(${props.theme.color.primary},1);
       color: rgb(255,255,255);
       cursor: default;

@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle, css } from "styled-components"
 
-const GlobalStyle = createGlobalStyle`
+export default createGlobalStyle`
   @font-face {
     font-family: "open-arrow";
     src: url("/fonts/OpenArrow-Regular.eot") format("embedded-opentype"),
@@ -42,14 +42,15 @@ const GlobalStyle = createGlobalStyle`
     line-height: 2;
     font-weight: 400;
     word-break: keep-all;
-    background-color: rgba(${props=>props.theme.color.background},1);
-    color: rgba(${props=>props.theme.color.content},1);
+    background-color: rgba(${props => props.theme.color.background},1);
+    color: rgba(${props => props.theme.color.content},1);
   }
   body{
-    background-color: rgba(${props=>props.theme.color.background},1);
-    color: rgba(${props=>props.theme.color.content},1);
+    background-color: rgba(${props => props.theme.color.background},1);
+    color: rgba(${props => props.theme.color.content},1);
     overflow-x: hidden;
     font-size: 1rem;
+    ${props => !props.theme.isBrowser && `user-select: none;`}
   }
   button, select{
     cursor: pointer;
@@ -140,7 +141,7 @@ export const Chip = styled.li`
 `
 export const Card = styled.div`
   border-radius: 0.5rem;
-  background-color: rgba(${props=>props.theme.color.background},1);
+  background-color: rgba(${props => props.theme.color.background},1);
   box-shadow: 0 .5rem 2rem 1rem rgba(0,0,0,0.05), 
               0 .25rem 1rem 0 rgba(0,0,0,0.05), 
               0 0 1px 0 rgba(0,0,0,0.1);
@@ -154,7 +155,7 @@ export const ThemeToggle = styled.button`
   transform: rotate(45deg);
   transform-origin: center;
   font-size: 1.5rem;
-  color: rgba(${props=>props.theme.color.content},1);
+  color: rgba(${props => props.theme.color.content},1);
   transition: .2s color, .2s transform;
   cursor: pointer;
   z-index: 1000;
@@ -162,28 +163,18 @@ export const ThemeToggle = styled.button`
     ${UtilAbsolute()}
     content: "";
     border-radius: 100%;
-    background-color: rgba(${props=>props.theme.color.content},1);
+    background-color: rgba(${props => props.theme.color.content},1);
     transform: scale(0);
     transition: .2s transform;
     z-index: -1;
   }
-  &:hover{
-    transform: rotate(225deg);
-    color: rgba(${props=>props.theme.color.background},1);
-    &:before{
-      transform: scale(4);
-    }
-    @media (hover: none){
-      color: rgba(${props=>props.theme.color.content},1);
+  ${props => props.theme.isBrowser && `
+    &:hover{
+      transform: rotate(225deg);
+      color: rgba(${props.theme.color.background},1);
       &:before{
-        display: none;
+        transform: scale(4);
       }
     }
-  }
+  `}
 `
-
-
-
-
-
-export default GlobalStyle
