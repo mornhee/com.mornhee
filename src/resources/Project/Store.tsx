@@ -31,12 +31,12 @@ class ProjectStore {
     let ref: firebase.firestore.CollectionReference|firebase.firestore.Query = firestore.collection( "Projects" )
     if( orderBy ){
       for( let o of orderBy ){
-        ref = o.indexOf( undefined ) >= 0 ? ref : ref.orderBy( ...o )
+        ref = o.includes( undefined ) ? ref : ref.orderBy( ...o )
       }
     } 
     if( where ){
       for( let o of where ){
-        ref = o.indexOf( undefined ) >= 0 ? ref : ref.where( ...o )
+        ref = o.includes( undefined ) ? ref : ref.where( ...o )
       }
     } 
     let { docs } = await ref.get()

@@ -62,20 +62,20 @@ export const UtilAbsolute = ( position?: string ) => css`
   position: absolute;
   margin: auto;
   ${ css`
-    ${ ( !position || ( position && position.indexOf( 'Bottom' ) < 0 ) ) && `top: 0;` }
-    ${ ( !position || ( position && position.indexOf( 'Right' ) < 0 ) ) && `left: 0;` }
-    ${ ( !position || ( position && position.indexOf( 'Left' ) < 0 ) ) && `right: 0;` }
-    ${ ( !position || ( position && position.indexOf( 'Top' ) < 0 ) ) && `bottom: 0;` }
+    ${ ( !position || ( position && !position.includes('Bottom') ) ) && `top: 0;` }
+    ${ ( !position || ( position && !position.includes('Right') ) ) && `left: 0;` }
+    ${ ( !position || ( position && !position.includes('Left') ) ) && `right: 0;` }
+    ${ ( !position || ( position && !position.includes('Top') ) ) && `bottom: 0;` }
   ` }
 `
 export const UtilFixed = ( position?: string ) => css`
   position: fixed;
   margin: auto;
   ${ css`
-    ${ ( !position || ( position && position.indexOf( 'Bottom' ) < 0 ) ) && `top: 0;` }
-    ${ ( !position || ( position && position.indexOf( 'Right' ) < 0 ) ) && `left: 0;` }
-    ${ ( !position || ( position && position.indexOf( 'Left' ) < 0 ) ) && `right: 0;` }
-    ${ ( !position || ( position && position.indexOf( 'Top' ) < 0 ) ) && `bottom: 0;` }
+    ${ ( !position || ( position && !position.includes('Bottom') ) ) && `top: 0;` }
+    ${ ( !position || ( position && !position.includes('Right') ) ) && `left: 0;` }
+    ${ ( !position || ( position && !position.includes('Left') ) ) && `right: 0;` }
+    ${ ( !position || ( position && !position.includes('Top') ) ) && `bottom: 0;` }
   ` }
 `
 export const UtilSquare = ( size: string ) => css`

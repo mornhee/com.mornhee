@@ -18,7 +18,7 @@ export default class Home extends React.Component<Props,State>{
     }
   }
   shiftSelectedFilter( filter?: string ){
-    if( this.state.selectedFilter !== filter && ( ProjectStore.Lists[ `home` ] && !ProjectStore.Lists[ `home` ].loading ) ){
+    if( this.state.selectedFilter !== filter && ProjectStore.Lists[ `home` ]?.loading === false ){
       this.setState({ selectedFilter: filter })
     }
   }
