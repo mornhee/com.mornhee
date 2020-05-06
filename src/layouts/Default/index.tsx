@@ -11,7 +11,7 @@ export default class LayoutDefault extends React.Component<Props,State>{
     return (
       <LayoutWrapper>
         <LayoutHeader>
-          <AppTitle hide>mornhee, make something</AppTitle>
+          <AppTitle hide>mornhee, makes something</AppTitle>
         </LayoutHeader>
         <LayoutContainer>{this.props.children}</LayoutContainer>
         <LayoutFooter>
